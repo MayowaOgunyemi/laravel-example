@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Job;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employer extends Model
 {
@@ -12,4 +13,12 @@ class Employer extends Model
 
     // Define the fillable attributes if needed
     protected $fillable = ['name'];
+
+    /**
+     * Get the jobs for the employer.
+     */
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

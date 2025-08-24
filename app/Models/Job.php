@@ -15,7 +15,7 @@ class Job extends Model
     // If the table name is not 'jobs', specify it here.
     protected $table = 'jobs_listings';
 
-    protected $fillable = ['title', 'salary'];
+    protected $fillable = ['employer_id', 'title', 'salary'];
 
     /**
      * Get the employer that owns the job.

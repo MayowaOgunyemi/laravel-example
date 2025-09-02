@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Auth;
 
 class RegisteredUserController extends Controller
 {
@@ -12,22 +13,19 @@ class RegisteredUserController extends Controller
     }
 
     public function store(){
-        request()->validate([
-            'name' => 'required|min:3',
+        $validatedAttributes = request()->validate([
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6'
         ]);
 
         // Create and save the user
-        $user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password'))
-        ]);
+        $user = User::create($validatedAttributes);
 
         // Log the user in
-        auth()->login($user);
+        Auth::login($user);
 
         // Redirect to homepage
-        return redirect('/');}
+        return redirect('/jobs');}
 }

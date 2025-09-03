@@ -12,10 +12,11 @@
                     <x-form-field>
                         <x-form-label for="email">Email Address</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="email" type="email" name="email" required/>
+                            <x-form-input id="email" type="email" name="email" :value="old('email')" required/>
                             <x-form-error name="email" />
                         </div>
                     </x-form-field>
+                    
                     <x-form-field>
                         <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">

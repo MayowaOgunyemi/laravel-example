@@ -47,9 +47,7 @@ class JobController extends Controller
 
     //Edit - show form to edit a job
     public function edit(Job $job){
-        return view('jobs.edit', [
-        'job' => $job
-    ]);
+        return view('jobs.edit', ['job' => $job]);
     }
 
     //Update - update a job

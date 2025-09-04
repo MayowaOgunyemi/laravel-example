@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Job;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -47,6 +50,8 @@ class JobController extends Controller
 
     //Edit - show form to edit a job
     public function edit(Job $job){
+        Gate::authorize('edit-job', $job);
+
         return view('jobs.edit', ['job' => $job]);
     }
 

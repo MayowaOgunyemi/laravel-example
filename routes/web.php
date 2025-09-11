@@ -13,9 +13,10 @@ Route::controller(JobController::class)->group(function () {
     Route::get('jobs/create', 'create')->middleware('auth');
     Route::get('/jobs/{job}', 'show');
     Route::post('/jobs', 'store');
+    
     Route::get('/jobs/{job}/edit', 'edit')
         ->middleware('auth')
-        ->can('edit-job', 'job');
+        ->can('edit', 'job');
         
     Route::patch('/jobs/{job}', 'update');
     Route::delete('/jobs/{job}', 'destroy');

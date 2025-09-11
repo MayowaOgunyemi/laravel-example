@@ -6,7 +6,7 @@
     <h2 class="font-bold text-lg">{{$job->title}}</h2>
     <p>Pays {{$job->salary}} per year</p>
 
-    @can('edit-job', $job)
+    @can('edit', $job)
         <div class="mt-6">
             <x-button href="/jobs/{{$job->id}}/edit">Edit Job</x-button>
         </div>

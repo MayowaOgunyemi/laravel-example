@@ -37,7 +37,7 @@ class JobPosted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.job-posted',
+            view: 'mail.job-posted',
         );
     }
 
